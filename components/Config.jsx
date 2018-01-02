@@ -76,7 +76,7 @@ class Config extends Component {
                 selectedClass = " iconPicker-selected";
             }
             return (
-                <a role="button" className={"iconPicker"+selectedClass} key={i} value={iconName} onClick={() => this.selectedIcon(iconName)}>
+                <a role="button" className={"iconPicker"+selectedClass} key={i} value={iconName} onClick={() => this.selectedIcon(iconName)} title={iconName}>
                     <i className={iconName + " iconPicker"}>{iconName}</i>
                 </a>
             )
