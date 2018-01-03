@@ -127,3 +127,13 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+#tab-main-content .row-day .day-content {
+    position: relative;
+}
+
+#tab-main-content .row-day .day-content .add-recipe-schedule-btn {
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+}

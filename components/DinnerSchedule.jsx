@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Table} from 'react-bootstrap';
+import {Glyphicon, Table} from 'react-bootstrap';
 
 
 let itemCls1 = "col-md-1 col-sm-1 col-xs-1";
@@ -30,7 +30,11 @@ class DinnerSchedule extends Component {
         var rows = [];
         for (var i = 0; i < this.props.meals.length; i++) {
             let classList = i==0||i==this.props.meals.length-1?itemCls2:itemCls3;
-            rows.push(<div key={i} className={"day-content section-"+ i + " " + classList}></div>);
+            rows.push(
+                <div key={i} className={"day-content section-"+ i + " " + classList}>
+                    <span className="add-recipe-schedule-btn"><Glyphicon glyph="plus-sign" /></span>
+                </div>
+            );
         }
         return this.props.days.map((entity, j) => {
             return (
