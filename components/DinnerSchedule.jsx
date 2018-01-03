@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import {Table} from 'react-bootstrap';
 
+
+let itemCls1 = "col-md-1 col-sm-1 col-xs-1";
+let itemCls2 = "col-md-2 col-sm-2 col-xs-2";
+let itemCls3 = "col-md-3 col-sm-3 col-xs-3";
+let itemCls4 = "col-md-4 col-sm-4 col-xs-4";
+let groupCls = "col-md-12 col-sm-12 col-xs-12";
+
 class DinnerSchedule extends Component {
     constructor(props) {
         super(props);
@@ -11,22 +18,25 @@ class DinnerSchedule extends Component {
 
     generateTableHeader() {
         return this.props.meals.map((entity, i) => {
+            var label = entity.toLowerCase();
+            let classList = entity=="Breakfast"||entity=="Snacks"?itemCls2:itemCls3;
             return (
-                <div key={i} className="col-md-3 col-sm-3 col-xs-3">{entity}</div>
+                <div key={i} className={"section-"+ label + " " + classList}>{entity}</div>
             )
         });
     }
 
     generateTableContent() {
         var rows = [];
-        for (var i = 0; i <= 7; i++) {
-            rows.push(<td key={i}></td>);
+        for (var i = 0; i < this.props.meals.length; i++) {
+            let classList = i==0||i==this.props.meals.length-1?itemCls2:itemCls3;
+            rows.push(<div key={i} className={"day-content section-"+ i + " " + classList}></div>);
         }
         return this.props.days.map((entity, j) => {
             return (
-                <div className="col-md-12 col-sm-12 col-xs-12">
-                    <div key={j} className="col-md-3 col-sm-3 col-xs-3">{entity.charAt(0)}</div>
-                    <div>{rows}</div>
+                <div key={j} className={"row-day row-" + entity + " " + groupCls}>
+                    <div key={j} className={"section-header " + itemCls1}>{entity.charAt(0)}</div>
+                    {rows}
                 </div>
             )
         });
@@ -34,9 +44,9 @@ class DinnerSchedule extends Component {
 
     render() {
         return (
-            <div className="col-md-12 col-sm-12 col-xs-12">
-                <div className="col-md-12 col-sm-12 col-xs-12">
-                    <div className="col-md-3 col-sm-3 col-xs-3">Day</div>
+            <div className={groupCls}>
+                <div className={"schedule-header " + groupCls}>
+                    <div className={"section-day " + itemCls1}>Day</div>
                     {this.generateTableHeader()}
                 </div>
                 {this.generateTableContent()}
@@ -68,7 +78,7 @@ DinnerSchedule.defaultProps = {
         "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
     ],
     meals: [
-        "Breakfast","Lunch", "Dinner"
+        "Breakfast","Lunch", "Dinner", "Snacks"
     ]
 }
 

@@ -49,7 +49,6 @@ class App extends React.Component {
                 <Grid>
                     <Row className="show-grid">
                         <MainContent/>
-                        <RecipesCategories />
                     </Row>
                 </Grid>
                 <AddRecipeForm showAddRecipe={this.state.showAddRecipeModal} hideAddRecipe={this.closeAddRecipe}/>
