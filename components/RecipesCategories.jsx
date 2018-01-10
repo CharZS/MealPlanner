@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Col, Tabs, Tab} from 'react-bootstrap';
+import {Col, Modal, ModalBody, ModalFooter, ModalHeader, Tabs, Tab} from 'react-bootstrap';
 import RecipesList from './RecipesList.jsx';
 
 class RecipesCategories extends Component {
@@ -28,11 +28,15 @@ class RecipesCategories extends Component {
 
     render() {
         return (
-            <Col lg={4} md={4} sm={4}>
-                <Tabs defaultActiveKey={0} id="tab-main-content">
-                    {this.getRecCatsList()}
-                </Tabs>
-            </Col>
+            <Modal show={this.props.showRecCat}>
+                <ModalBody>
+                    <Col lg={4} md={4} sm={4}>
+                        <Tabs defaultActiveKey={0} id="tab-main-content">
+                            {this.getRecCatsList()}
+                        </Tabs>
+                    </Col>
+                </ModalBody>
+            </Modal>
         );
     }
 }

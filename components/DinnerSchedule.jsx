@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Glyphicon, Table} from 'react-bootstrap';
-
+import {Button, Glyphicon, Table} from 'react-bootstrap';
+import RecipesCategories from './RecipesCategories.jsx';
 
 let itemCls1 = "col-md-1 col-sm-1 col-xs-1";
 let itemCls2 = "col-md-2 col-sm-2 col-xs-2";
@@ -12,8 +12,16 @@ class DinnerSchedule extends Component {
     constructor(props) {
         super(props);
 
+        this.addMeal = this.addMeal.bind(this);
         this.generateTableHeader = this.generateTableHeader.bind(this);
         this.generateTableContent = this.generateTableContent.bind(this);
+    }
+
+    addMeal() {
+        console.log('hello');
+        return (
+            <RecipesCategories showRecCat={"true"}/>
+        );
     }
 
     generateTableHeader() {
@@ -32,7 +40,7 @@ class DinnerSchedule extends Component {
             let classList = i==0||i==this.props.meals.length-1?itemCls2:itemCls3;
             rows.push(
                 <div key={i} className={"day-content section-"+ i + " " + classList}>
-                    <span className="add-recipe-schedule-btn"><Glyphicon glyph="plus-sign" /></span>
+                    <Button className="add-recipe-schedule-btn" bsStyle="success" onClick={this.addMeal}>Add Meal <Glyphicon glyph="plus" /></Button>
                 </div>
             );
         }

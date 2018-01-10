@@ -108,7 +108,7 @@
 }
 
 #tab-main-content .row-day .section-header {
-    font-family: 'Sofia';
+    font-family: 'Calibri';
     font-size: 35px;
 }
 
@@ -135,5 +135,13 @@
 #tab-main-content .row-day .day-content .add-recipe-schedule-btn {
     position: absolute;
     bottom: 0;
-    right: 3px;
+    left: 0;
+    width: 100%;
+}
+
+#tab-main-content .row-day .day-content button.add-recipe-schedule-btn {
+    display: none;
+}
+#tab-main-content .row-day .day-content:hover button.add-recipe-schedule-btn {
+    display: block;
 }
