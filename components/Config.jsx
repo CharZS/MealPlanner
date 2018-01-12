@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button, Col, ControlLabel, form, FormControl, FormGroup, Grid, InputGroup, Modal, ModalBody, ModalFooter, ModalHeader, Radio, Row} from 'react-bootstrap';
+import {Button, Col, ControlLabel, form, FormControl, FormGroup, Grid, InputGroup, ModalBody, ModalFooter, ModalHeader, Radio, Row} from 'react-bootstrap';
 import * as actions from '../actions';
 
 let createHandlers = function(dispatch) {
@@ -152,9 +152,8 @@ class Config extends Component {
 
     render() {
         return (
-            <Modal show={this.props.showConfig} onHide={this.props.hideConfig}>
-                <ModalHeader>Configuration Settings</ModalHeader>
                 <form id="configForm">
+                    <ModalHeader>Configuration Settings</ModalHeader>
                     <ModalBody>
                         {this.renderConfigForm()}
                         <hr />
@@ -166,7 +165,6 @@ class Config extends Component {
                         <Button bsStyle="primary" onClick={this.saveForm}>Save</Button>
                     </ModalFooter>
                 </form>
-            </Modal>
         );
     }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button, ControlLabel, form, FormControl, FormGroup, HelpBlock, InputGroup, Modal, ModalBody, ModalFooter, ModalHeader, Tabs, Tab} from 'react-bootstrap';
+import {Button, ControlLabel, form, FormControl, FormGroup, HelpBlock, InputGroup, ModalBody, ModalFooter, ModalHeader, Tabs, Tab} from 'react-bootstrap';
 import * as actions from '../actions';
 
 let createHandlers = function(dispatch) {
@@ -166,17 +166,15 @@ class AddRecipeForm extends Component {
 
     render() {
         return (
-            <Modal show={this.props.showAddRecipe} onHide={this.props.hideAddRecipe}>
+            <form id="recipeForm">
                 <ModalHeader>Add Recipe</ModalHeader>
-                <form id="recipeForm">
-                    <ModalBody>{this.renderForm()}</ModalBody>
-                    <ModalFooter>
-                        <Button bsStyle="primary" onClick={this.handleClick}>
-                            Add recipe
-                        </Button>
-                    </ModalFooter>
-                </form>
-            </Modal>
+                <ModalBody>{this.renderForm()}</ModalBody>
+                <ModalFooter>
+                    <Button bsStyle="primary" onClick={this.handleClick}>
+                        Add recipe
+                    </Button>
+                </ModalFooter>
+            </form>
         );
     }
 }

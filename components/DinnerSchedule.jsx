@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Glyphicon, Table} from 'react-bootstrap';
+import {Button, Glyphicon, Modal, Table} from 'react-bootstrap';
 import RecipesCategories from './RecipesCategories.jsx';
 
 let itemCls1 = "col-md-1 col-sm-1 col-xs-1";
@@ -12,16 +12,22 @@ class DinnerSchedule extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            showRecCat: false,
+        }
+
         this.addMeal = this.addMeal.bind(this);
+        this.hideAddMeal = this.hideAddMeal.bind(this);
         this.generateTableHeader = this.generateTableHeader.bind(this);
         this.generateTableContent = this.generateTableContent.bind(this);
     }
 
     addMeal() {
-        console.log('hello');
-        return (
-            <RecipesCategories showRecCat={"true"}/>
-        );
+        this.setState({ showRecCat: true });
+    }
+
+    hideAddMeal() {
+        this.setState({ showRecCat: false });
     }
 
     generateTableHeader() {
@@ -62,28 +68,15 @@ class DinnerSchedule extends Component {
                     {this.generateTableHeader()}
                 </div>
                 {this.generateTableContent()}
+
+
+                <Modal show={this.state.showRecCat} onHide={this.hideAddMeal}>
+                    <RecipesCategories/>
+                </Modal>
             </div>
         );
     }
 }
-/*
-
-        return (
-            <div>
-            <Table bordered>
-                <thead>
-                    <tr>
-                        <th>Day</th>
-                        {this.generateTableHeader()}
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.generateTableContent()}
-                </tbody>
-            </Table>
-            </div>
-        );
- */
 
 DinnerSchedule.defaultProps = {
     days: [

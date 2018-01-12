@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Glyphicon, Grid, Row, Tabs, Tab} from 'react-bootstrap';
+import {Button, Glyphicon, Grid, Modal, Row, Tabs, Tab} from 'react-bootstrap';
 import MainContent from './components/MainContent.jsx';
 import RecipesCategories from './components/RecipesCategories.jsx';
 import AddRecipeForm from './components/AddRecipeForm.jsx';
@@ -51,8 +51,12 @@ class App extends React.Component {
                         <MainContent/>
                     </Row>
                 </Grid>
-                <AddRecipeForm showAddRecipe={this.state.showAddRecipeModal} hideAddRecipe={this.closeAddRecipe}/>
-                <Config showConfig={this.state.showConfigModal} hideConfig={this.closeConfig}/>
+                <Modal show={this.state.showAddRecipeModal} onHide={this.closeAddRecipe}>
+                    <AddRecipeForm/>
+                </Modal>
+                <Modal show={this.state.showConfigModal} onHide={this.closeConfig}>
+                    <Config/>
+                </Modal>
             </div>
         );
     }
