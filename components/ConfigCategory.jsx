@@ -153,7 +153,7 @@ class ConfigCategory extends Component {
     render() {
         return (
                 <form id="configForm">
-                    <ModalHeader>Category Configuration</ModalHeader>
+                    <ModalHeader>Categories</ModalHeader>
                     <ModalBody>
                         {this.renderConfigForm()}
                         <hr />

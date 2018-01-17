@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button, ControlLabel, form, FormControl, FormGroup, HelpBlock, InputGroup, ModalBody, ModalFooter, ModalHeader, Tabs, Tab} from 'react-bootstrap';
+import {Button, ControlLabel, form, FormControl, FormGroup, HelpBlock, InputGroup, Modal, ModalBody, ModalFooter, ModalHeader, Tabs, Tab} from 'react-bootstrap';
 import * as actions from '../actions';
 
 let createHandlers = function(dispatch) {
@@ -20,6 +20,7 @@ class AddRecipeForm extends Component {
         this.handlers = createHandlers(this.props.dispatch);
 
         this.state = {
+            showAddRecipeModal: false,
             recipe: {
                 name: "",
                 prep: "",
@@ -42,9 +43,19 @@ class AddRecipeForm extends Component {
             }
         }
 
+        this.openAddRecipe = this.openAddRecipe.bind(this);
+        this.closeAddRecipe = this.closeAddRecipe.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.renderForm = this.renderForm.bind(this);
         this.handleClick = this.handleClick.bind(this);
+    }
+
+    openAddRecipe() {
+        this.setState({ showAddRecipeModal: true });
+    }
+
+    closeAddRecipe() {
+        this.setState({ showAddRecipeModal: false });
     }
 
     handleChange(e) {
@@ -161,20 +172,28 @@ class AddRecipeForm extends Component {
                 video: "",
             }
         });
-        this.props.hideAddRecipe();
+        this.closeAddRecipe();
     }
 
     render() {
         return (
-            <form id="recipeForm">
-                <ModalHeader>Add Recipe</ModalHeader>
-                <ModalBody>{this.renderForm()}</ModalBody>
-                <ModalFooter>
-                    <Button bsStyle="primary" onClick={this.handleClick}>
-                        Add recipe
-                    </Button>
-                </ModalFooter>
-            </form>
+            <div>
+                <Button bsStyle="primary" onClick={this.openAddRecipe}>Add Recipe</Button>
+                <Modal show={this.state.showAddRecipeModal} onHide={this.closeAddRecipe}>
+                    <form id="recipeForm">
+                        <ModalHeader>Add Recipe</ModalHeader>
+                        <ModalBody>{this.renderForm()}</ModalBody>
+                        <ModalFooter>
+                            <Button bsStyle="warning" onClick={this.closeAddRecipe}>
+                                Close
+                            </Button>
+                            <Button bsStyle="primary" onClick={this.handleClick}>
+                                Add recipe
+                            </Button>
+                        </ModalFooter>
+                    </form>
+                </Modal>
+            </div>
         );
     }
 }
