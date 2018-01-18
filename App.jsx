@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Button, Grid, Row} from 'react-bootstrap';
 import MainContent from './components/MainContent.jsx';
 import AddRecipeForm from './components/AddRecipeForm.jsx';
@@ -29,8 +30,8 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-    headerProp: React.PropTypes.string,
-    contentProp: React.PropTypes.string
+    headerProp: PropTypes.string,
+    contentProp: PropTypes.string
 }
 
 App.defaultProps = {

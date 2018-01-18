@@ -152,19 +152,19 @@ class ConfigCategory extends Component {
 
     render() {
         return (
-                <form id="configForm">
-                    <ModalHeader>Categories</ModalHeader>
-                    <ModalBody>
-                        {this.renderConfigForm()}
-                        <hr />
-                        <Grid bsClass="modal-body" className="cat-list-config">
-                            {this.renderConfigList()}
-                        </Grid>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button bsStyle="primary" onClick={this.saveForm}>Save</Button>
-                    </ModalFooter>
-                </form>
+            <form id="configForm">
+                <ModalHeader>Categories</ModalHeader>
+                <ModalBody>
+                    {this.renderConfigForm()}
+                    <hr />
+                    <Grid bsClass="modal-body" className="cat-list-config">
+                        {this.renderConfigList()}
+                    </Grid>
+                </ModalBody>
+                <ModalFooter>
+                    <Button bsStyle="primary" onClick={this.saveForm}>Save</Button>
+                </ModalFooter>
+            </form>
         );
     }
 }

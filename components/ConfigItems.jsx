@@ -4,6 +4,8 @@ import {Button, ControlLabel, form, FormControl, FormGroup, Grid, InputGroup, Mo
 class ConfigItems extends Component {
     constructor(props) {
         super(props);
+
+        this.saveForm = this.saveForm.bind(this);
     }
 
     saveForm() {
