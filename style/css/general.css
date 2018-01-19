@@ -5,19 +5,19 @@
 /*
  * Config Form
  */
-#configForm .cat-text.input-group {
+#configCategoryForm .cat-text.input-group {
     margin-bottom: 10px;
 }
 
-#configForm #add-cat-sct .icon-labels {
+#configCategoryForm #add-cat-sct .icon-labels {
     padding-bottom: 5px;
 }
 
-#configForm #add-cat-sct .icon-labels label i {
+#configCategoryForm #add-cat-sct .icon-labels label i {
     position: absolute;
 }
 
-#configForm #add-cat-sct .cat-icons {
+#configCategoryForm #add-cat-sct .cat-icons {
     position: relative;
     clear: both;
     float: none;
@@ -30,12 +30,12 @@
     max-height: 156px;
     border: 1px #ddd solid;
 }
-#configForm #add-cat-sct .cat-icons:before {
+#configCategoryForm #add-cat-sct .cat-icons:before {
     content: " ";
     display: table;
 }
 
-#configForm #add-cat-sct .cat-icons a {
+#configCategoryForm #add-cat-sct .cat-icons a {
     float: left;
     width: 24px;
     height: 24px;
@@ -49,19 +49,19 @@
     color: inherit;
 }
 
-#configForm .cat-list-config .row {
+#configCategoryForm .cat-list-config .row {
     padding: 10px 0;
     border-top: 1px rgba(86,61,124,.15) solid;
 }
-#configForm .cat-list-config .row:last-child {
+#configCategoryForm .cat-list-config .row:last-child {
     border-bottom: 1px rgba(86,61,124,.15) solid;
 }
 
-#configForm .cat-list-config .row .cat-col {
+#configCategoryForm .cat-list-config .row .cat-col {
     text-align: center;
     border-left: 1px rgba(86,61,124,.15) solid;
 }
-#configForm .cat-list-config .row .cat-col:last-child {
+#configCategoryForm .cat-list-config .row .cat-col:last-child {
     border-right: 1px rgba(86,61,124,.15) solid;
 }
 

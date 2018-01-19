@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import {Button, ControlLabel, form, FormControl, FormGroup, Grid, HelpBlock, InputGroup, ModalBody, ModalFooter, ModalHeader} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import {Button, ControlLabel, form, FormControl, HelpBlock, InputGroup, ModalBody, ModalFooter, ModalHeader} from 'react-bootstrap';
+import * as actions from '../actions';
+
+let createHandlers = function(dispatch) {
+
+}
 
 class ConfigSettings extends Component {
     constructor(props) {
         super(props);
+
+        this.handlers = createHandlers(this.props.dispatch);
 
         this.state = {
             defaultServings: 0,
@@ -38,7 +46,7 @@ class ConfigSettings extends Component {
 
     render() {
         return (
-            <form id="configForm">
+            <form id="configSettingsForm">
                 <ModalHeader>Settings</ModalHeader>
                 <ModalBody>
                     {this.renderSettings()}
@@ -51,4 +59,10 @@ class ConfigSettings extends Component {
     }
 }
 
-export default ConfigSettings;
+function mapStateToProps(state) {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps)(ConfigSettings);
