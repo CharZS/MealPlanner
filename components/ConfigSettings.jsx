@@ -4,7 +4,13 @@ import {Button, ControlLabel, form, FormControl, HelpBlock, InputGroup, ModalBod
 import * as actions from '../actions';
 
 let createHandlers = function(dispatch) {
+    let setSettings = function(settings) {
+        dispatch(actions.setSettings(settings))
+    };
 
+    return {
+        setSettings,
+    }
 }
 
 class ConfigSettings extends Component {
@@ -14,7 +20,7 @@ class ConfigSettings extends Component {
         this.handlers = createHandlers(this.props.dispatch);
 
         this.state = {
-            defaultServings: 0,
+            defaultServings: this.props.settings,
         };
 
         this.onSettingsChange = this.onSettingsChange.bind(this);
@@ -41,7 +47,7 @@ class ConfigSettings extends Component {
     }
 
     saveForm() {
-        this.props.hideConfig();
+        this.handlers.setSettings(this.state.defaultServings);
     }
 
     render() {
@@ -61,7 +67,7 @@ class ConfigSettings extends Component {
 
 function mapStateToProps(state) {
     return {
-
+        settings: state.settings
     }
 }
 

@@ -4,7 +4,13 @@ import {Button, ControlLabel, form, FormControl, FormGroup, HelpBlock, ModalBody
 import * as actions from '../actions';
 
 let createHandlers = function(dispatch) {
-    
+    let setStockItems = function(stockList) {
+        dispatch(actions.setStockItems(stockList))
+    };
+
+    return {
+        setStockItems,
+    }
 }
 
 class ConfigItems extends Component {
@@ -14,7 +20,7 @@ class ConfigItems extends Component {
         this.handlers = createHandlers(this.props.dispatch);
 
         this.state = {
-            pantryItems: "",
+            pantryItems: this.props.stockItems,
         };
 
         this.onStorageChange = this.onStorageChange.bind(this);
@@ -31,7 +37,7 @@ class ConfigItems extends Component {
             <div id="storage-sct">
                 <FormGroup>
                     <ControlLabel>Pantry Items</ControlLabel>
-                    <FormControl componentClass="textarea" onChange={this.onStorageChange} placeholder="List all items you have stocked at home, listing each item on a separate line"/>
+                    <FormControl componentClass="textarea" onChange={this.onStorageChange} value={this.state.pantryItems} placeholder="List all items you have stocked at home, listing each item on a separate line"/>
                     <HelpBlock>List all items you have stocked at home, listing each item on a separate line</HelpBlock>
                 </FormGroup>
             </div>
@@ -39,7 +45,7 @@ class ConfigItems extends Component {
     }
 
     saveForm() {
-        this.props.hideConfig();
+        this.handlers.setStockItems(this.state.pantryItems);
     }
 
     render() {
@@ -59,7 +65,7 @@ class ConfigItems extends Component {
 
 function mapStateToProps(state) {
     return {
-
+        stockItems: state.stockItems
     }
 }
 

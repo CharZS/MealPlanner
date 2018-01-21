@@ -31,13 +31,13 @@ class Config extends Component {
                 <Modal show={this.state.showConfigModal} onHide={this.closeConfig}>
                     <Tabs defaultActiveKey={1} id="config-tabs">
                         <Tab eventKey={1} title="Settings">
-                            <ConfigSettings />
+                            <ConfigSettings closeConfig={this.closeConfig}/>
                         </Tab>
                         <Tab eventKey={2} title="Category">
-                            <ConfigCategory />
+                            <ConfigCategory closeConfig={this.closeConfig}/>
                         </Tab>
                         <Tab eventKey={3} title="Pantry Items">
-                            <ConfigItems />
+                            <ConfigItems closeConfig={this.closeConfig}/>
                         </Tab>
                     </Tabs>
                 </Modal>
