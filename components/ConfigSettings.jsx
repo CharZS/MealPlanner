@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button, ControlLabel, form, FormControl, HelpBlock, InputGroup, ModalBody, ModalFooter, ModalHeader} from 'react-bootstrap';
+import {Button, ControlLabel, form, FormControl, HelpBlock, InputGroup, ModalBody, ModalFooter} from 'react-bootstrap';
 import * as actions from '../actions';
 
 let createHandlers = function(dispatch) {
@@ -53,7 +53,6 @@ class ConfigSettings extends Component {
     render() {
         return (
             <form id="configSettingsForm">
-                <ModalHeader>Settings</ModalHeader>
                 <ModalBody>
                     {this.renderSettings()}
                 </ModalBody>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button, Col, ControlLabel, form, FormControl, FormGroup, Grid, InputGroup, ModalBody, ModalFooter, ModalHeader, Radio, Row} from 'react-bootstrap';
+import {Button, Col, ControlLabel, form, FormControl, FormGroup, Grid, InputGroup, ModalBody, ModalFooter, Radio, Row} from 'react-bootstrap';
 import * as actions from '../actions';
 
 let createHandlers = function(dispatch) {
@@ -153,7 +153,6 @@ class ConfigCategory extends Component {
     render() {
         return (
             <form id="configCategoryForm">
-                <ModalHeader>Categories</ModalHeader>
                 <ModalBody>
                     {this.renderConfigForm()}
                     <hr />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button, ControlLabel, form, FormControl, FormGroup, HelpBlock, ModalBody, ModalFooter, ModalHeader} from 'react-bootstrap';
+import {Button, ControlLabel, form, FormControl, FormGroup, HelpBlock, ModalBody, ModalFooter} from 'react-bootstrap';
 import * as actions from '../actions';
 
 let createHandlers = function(dispatch) {
@@ -51,7 +51,6 @@ class ConfigItems extends Component {
     render() {
         return (
                 <form id="configItemsForm">
-                    <ModalHeader>Pantry Items List</ModalHeader>
                     <ModalBody>
                         {this.renderStorage()}
                     </ModalBody>
