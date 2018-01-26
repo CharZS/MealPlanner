@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Button, Grid, Row} from 'react-bootstrap';
+import PouchDB from 'pouchdb-react-native';
+
 import MainContent from './components/MainContent.jsx';
 import AddRecipeForm from './components/AddRecipeForm.jsx';
 import Config from './components/Config.jsx';
+
+const db = new PouchDB('mealPlannerDB');
 
 class App extends React.Component {
     constructor(props) {
