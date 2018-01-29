@@ -71,7 +71,7 @@ class DinnerSchedule extends Component {
 
 
                 <Modal show={this.state.showRecCat} onHide={this.hideAddMeal}>
-                    <RecipesCategories/>
+                    <RecipesCategories closeWindow={this.hideAddMeal}/>
                 </Modal>
             </div>
         );

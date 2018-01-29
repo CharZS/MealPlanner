@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Col, ModalBody, ModalFooter, ModalHeader, Tabs, Tab} from 'react-bootstrap';
+import {Button, Col, ModalBody, ModalFooter, ModalHeader, Tabs, Tab} from 'react-bootstrap';
 import RecipesList from './RecipesList.jsx';
 
 class RecipesCategories extends Component {
@@ -37,7 +37,7 @@ class RecipesCategories extends Component {
                         </Tabs>
                     </Col>
                 </ModalBody>
-                <ModalFooter>Done</ModalFooter>
+                <ModalFooter><Button bsStyle="info" onClick={this.props.closeWindow}>Close</Button></ModalFooter>
             </div>
         );
     }

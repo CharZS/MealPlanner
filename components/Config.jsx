@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Glyphicon, Modal, Tab, Tabs} from 'react-bootstrap';
+import {Glyphicon, Modal, Tab, Tabs} from 'react-bootstrap';
 import ConfigSettings from './ConfigSettings.jsx';
 import ConfigCategory from './ConfigCategory.jsx';
 import ConfigItems from './ConfigItems.jsx';
@@ -14,7 +14,7 @@ class Config extends Component {
 
         this.openConfig = this.openConfig.bind(this);
         this.closeConfig = this.closeConfig.bind(this);
-    }    
+    }
 
     openConfig() {
         this.setState({ showConfigModal: true });
@@ -26,8 +26,8 @@ class Config extends Component {
 
     render() {
         return (
-            <div>
-                <Button bsStyle="info" onClick={this.openConfig}><Glyphicon glyph="cog" /></Button>
+            <div className="menu-item">
+                <a className="config-btn" onClick={this.openConfig}><Glyphicon glyph="cog" /></a>
                 <Modal show={this.state.showConfigModal} onHide={this.closeConfig}>
                     <Tabs defaultActiveKey={1} id="config-tabs">
                         <Tab eventKey={1} title="Settings">
