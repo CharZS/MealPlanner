@@ -16,8 +16,8 @@ class App extends React.Component {
 
     render() {
         return (
-            <div id="recipe-app" className="container">
-                <div id="main-menu" className="container">
+            <div id="recipe-app">
+                <div id="main-menu">
                     <AddRecipeForm />
                     <Config />
                 </div>

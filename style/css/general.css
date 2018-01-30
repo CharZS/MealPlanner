@@ -3,6 +3,26 @@
 }
 
 /*
+ * General Site Style
+ */
+#recipe-app #main-menu {
+    background-color: #c38d9e;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+#recipe-app #main-menu div.menu-item {
+    float: left;
+    margin-right: 10px;
+    padding: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+#recipe-app #main-menu div.menu-item:hover {
+    background-color: #e4adbe;
+    cursor: pointer;
+}
+
+/*
  * Config Form
  */
 #configCategoryForm .cat-text.input-group {

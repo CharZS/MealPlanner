@@ -26,8 +26,8 @@ class Config extends Component {
 
     render() {
         return (
-            <div className="menu-item">
-                <a className="config-btn" onClick={this.openConfig}><Glyphicon glyph="cog" /></a>
+            <div className="menu-item" onClick={this.openConfig}>
+                <Glyphicon glyph="cog" />
                 <Modal show={this.state.showConfigModal} onHide={this.closeConfig}>
                     <Tabs defaultActiveKey={1} id="config-tabs">
                         <Tab eventKey={1} title="Settings">

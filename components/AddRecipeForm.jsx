@@ -177,8 +177,8 @@ class AddRecipeForm extends Component {
 
     render() {
         return (
-            <div className="menu-item">
-                <a className="add-recipe-btn" onClick={this.openAddRecipe}>Add Recipe</a>
+            <div className="menu-item" onClick={this.openAddRecipe}>
+                Add Recipe
                 <Modal show={this.state.showAddRecipeModal} onHide={this.closeAddRecipe}>
                     <form id="recipeForm">
                         <ModalHeader>Add Recipe</ModalHeader>
