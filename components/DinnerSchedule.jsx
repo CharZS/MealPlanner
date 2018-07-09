@@ -6,6 +6,7 @@ let itemCls1 = "col-md-1 col-sm-1 col-xs-1";
 let itemCls2 = "col-md-2 col-sm-2 col-xs-2";
 let itemCls3 = "col-md-3 col-sm-3 col-xs-3";
 let itemCls4 = "col-md-4 col-sm-4 col-xs-4";
+let itemCls9 = "col-md-9 col-sm-9 col-xs-9";
 let groupCls = "col-md-12 col-sm-12 col-xs-12";
 
 class DinnerSchedule extends Component {
@@ -20,6 +21,7 @@ class DinnerSchedule extends Component {
         this.hideAddMeal = this.hideAddMeal.bind(this);
         this.generateTableHeader = this.generateTableHeader.bind(this);
         this.generateTableContent = this.generateTableContent.bind(this);
+        this.getRowItems = this.getRowItems.bind(this);
     }
 
     addMeal() {
@@ -41,31 +43,45 @@ class DinnerSchedule extends Component {
     }
 
     generateTableContent() {
-        var rows = [];
-        for (var i = 0; i < this.props.meals.length; i++) {
-            let classList = i==0||i==this.props.meals.length-1?itemCls2:itemCls3;
-            rows.push(
-                <div key={i} className={"day-content section-"+ i + " " + classList}>
-                    <Button className="add-recipe-schedule-btn" bsStyle="success" onClick={this.addMeal}>Add Meal <Glyphicon glyph="plus" /></Button>
-                </div>
-            );
-        }
+        var mealRows = this.getRowItems(this.props.meals);
+        var snackRows = this.getRowItems(this.props.snacks);
+
         return this.props.days.map((entity, j) => {
             return (
-                <div key={j} className={"row-day row-" + entity + " " + groupCls}>
-                    <div key={j} className={"section-header " + itemCls1}>{entity.charAt(0)}</div>
-                    {rows}
+                <div key={j} className={"row row-day row-" + entity}>
+                    <div className="container">
+                    <div key={j} className={"section-label " + itemCls9}>
+                        <div className={"day-letter " + itemCls3}>{entity}</div>
+                        <div className={itemCls9}>
+                            <div className="row">{mealRows}</div>
+                            <div className="row">{snackRows}</div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             )
         });
     }
 
+    getRowItems(groupTypes) {
+        var rows = [];
+        for (var i = 0; i < groupTypes.length; i++) {
+            rows.push(
+                <div key={i} className={"day-content section-"+ i + " section-" + groupTypes[i] + " " + itemCls4}>
+                    <span className="meal-label">{groupTypes[i]}</span>
+                    <Button className="add-recipe-schedule-btn" bsStyle="success" onClick={this.addMeal}>Add Meal <Glyphicon glyph="plus" /></Button>
+                </div>
+            );
+        }
+        return rows;
+    }
+
     render() {
         return (
-            <div className={groupCls}>
-                <div className={"schedule-header " + groupCls}>
-                    <div className={"section-day " + itemCls1}>Day</div>
-                    {this.generateTableHeader()}
+            <div className={"container " + itemCls9/*groupCls*/}>
+                <div className={"schedule-header row"/* + groupCls*/}>
+                    {/*<div className={"section-day " + itemCls1}>Day</div>*/}
+                    {/*this.generateTableHeader()*/}
                 </div>
                 {this.generateTableContent()}
 
@@ -83,7 +99,10 @@ DinnerSchedule.defaultProps = {
         "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
     ],
     meals: [
-        "Breakfast","Lunch", "Dinner", "Snacks"
+        "Breakfast","Lunch", "Dinner"
+    ],
+    snacks: [
+        "Snack1", "Snack2", "Snack3"
     ]
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Glyphicon, Modal, Tab, Tabs} from 'react-bootstrap';
+import {Modal, Tab, Tabs} from 'react-bootstrap';
 import ConfigSettings from './ConfigSettings.jsx';
 import ConfigCategory from './ConfigCategory.jsx';
 import ConfigItems from './ConfigItems.jsx';
@@ -27,7 +27,7 @@ class Config extends Component {
     render() {
         return (
             <div className="menu-item" onClick={this.openConfig}>
-                <Glyphicon glyph="cog" />
+                <i className="fas fa-cogs"></i>
                 <Modal show={this.state.showConfigModal} onHide={this.closeConfig}>
                     <Tabs defaultActiveKey={1} id="config-tabs">
                         <Tab eventKey={1} title="Settings">

@@ -23,11 +23,11 @@ class App extends React.Component {
                 </div>
                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-18">
                 </div>
-                <Grid>
-                    <Row className="show-grid">
+                <div>
+                    <div className="show-grid">
                         <MainContent/>
-                    </Row>
-                </Grid>
+                    </div>
+                </div>
             </div>
         );
     }
