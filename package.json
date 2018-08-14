@@ -1,7 +1,7 @@
 {
-  "name": "reactsorttree",
+  "name": "mealplanner",
   "version": "1.0.0",
-  "description": "A local react app to test the Sort Tree component",
+  "description": " areact app for a pantry organiser and suggestive meal planner",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot"
