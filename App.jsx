@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Button, Grid, Row} from 'react-bootstrap';
 
+import MainMenu from './components/MainMenu.jsx';
 import MainContent from './components/MainContent.jsx';
-import AddRecipeForm from './components/AddRecipeForm.jsx';
-import Config from './components/Config.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -14,10 +13,7 @@ class App extends React.Component {
     render() {
         return (
             <div id="recipe-app">
-                <div id="main-menu">
-                    <AddRecipeForm />
-                    <Config />
-                </div>
+                <MainMenu/>
                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-18">
                 </div>
                 <div>
